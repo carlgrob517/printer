@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.floodcoding.printer">
+    <uses-permission android:name="ru.a402d.rawbtprinter.PERMISSION" />
+    <queries>
+        <package android:name="ru.a402d.rawbtprinter"/>
+    </queries>
+</manifest>

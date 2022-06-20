@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rawbt_connect_error">Ошибка подключения к службе печати RawBT</string>
+    <string name="rawbt_permission_not_granted">Разрешение не предоставлено</string>
+    <string name="rawb_not_installed">Служба печати RawBT не установлена</string>
+    <string name="rawbt_please_wait">Подождите несколько секунд и попробуйте снова.</string>
+</resources>
