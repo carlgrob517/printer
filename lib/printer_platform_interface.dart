@@ -27,7 +27,107 @@ abstract class PrinterPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<void> println(String text) {
+  Future<bool> setCopies(int copies) {
+    throw UnimplementedError('setCopies() has not been implemented.');
+  }
+
+  Future<bool> println(String text) {
     throw UnimplementedError('println() has not been implemented.');
+  }
+
+  Future<bool> printBold(String text) {
+    throw UnimplementedError('printBold() has not been implemented.');
+  }
+
+  Future<bool> printUnderline(String text) {
+    throw UnimplementedError('printUnderline() has not been implemented.');
+  }
+
+  Future<bool> printUnderlineBold(String text) {
+    throw UnimplementedError('printUnderlineBold() has not been implemented.');
+  }
+
+  Future<bool> printLeft(String text) {
+    throw UnimplementedError('printLeft() has not been implemented.');
+  }
+
+  Future<bool> printRight(String text) {
+    throw UnimplementedError('printRight() has not been implemented.');
+  }
+
+  Future<bool> printCenter(String text) {
+    throw UnimplementedError('printCenter() has not been implemented.');
+  }
+
+  Future<bool> printLeftBold(String text) {
+    throw UnimplementedError('printLeftBold() has not been implemented.');
+  }
+
+  Future<bool> printRightBold(String text) {
+    throw UnimplementedError('printRightBold() has not been implemented.');
+  }
+
+  Future<bool> printCenterBold(String text) {
+    throw UnimplementedError('printCenterBold() has not been implemented.');
+  }
+
+  Future<bool> printLeftUnderline(String text) {
+    throw UnimplementedError('printLeftUnderline() has not been implemented.');
+  }
+
+  Future<bool> printRightUnderline(String text) {
+    throw UnimplementedError('printRightUnderline() has not been implemented.');
+  }
+
+  Future<bool> printCenterUnderline(String text) {
+    throw UnimplementedError('printCenterUnderline() has not been implemented.');
+  }
+
+  Future<bool> printLeftUnderlineBold(String text) {
+    throw UnimplementedError('printLeftUnderlineBold() has not been implemented.');
+  }
+
+  Future<bool> printRightUnderlineBold(String text) {
+    throw UnimplementedError('printRightUnderlineBold() has not been implemented.');
+  }
+
+  Future<bool> printCenterUnderlineBold(String text) {
+    throw UnimplementedError('printCenterUnderlineBold() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidth(String text) {
+    throw UnimplementedError('printDoubleHeightWidth() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthLeft(String text) {
+    throw UnimplementedError('printDoubleHeightWidthLeft() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthRight(String text) {
+    throw UnimplementedError('printDoubleHeightWidthRight() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthCenter(String text) {
+    throw UnimplementedError('printDoubleHeightWidthCenter() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthBold(String text) {
+    throw UnimplementedError('printDoubleHeightWidthBold() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthBoldLeft(String text) {
+    throw UnimplementedError('printDoubleHeightWidthBoldLeft() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthBoldRight(String text) {
+    throw UnimplementedError('printDoubleHeightWidthBoldRight() has not been implemented.');
+  }
+
+  Future<bool> printDoubleHeightWidthBoldCenter(String text) {
+    throw UnimplementedError('printDoubleHeightWidthBoldCenter() has not been implemented.');
+  }
+
+  Future<bool> flush() {
+    throw UnimplementedError('flush() has not been implemented.');
   }
 }
