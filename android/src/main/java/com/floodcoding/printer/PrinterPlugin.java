@@ -1,5 +1,7 @@
 package com.floodcoding.printer;
 
+import static rawbt.api.Constant.*;
+
 import android.app.Activity;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import rawbt.api.AppCompatRawbtPlugin;
 import rawbt.api.RawbtPrintJob;
+import rawbt.api.attributes.AttributesString;
 
 /** PrinterPlugin */
 public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
