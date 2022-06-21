@@ -272,6 +272,66 @@ class MethodChannelPrinter extends PrinterPlatform {
   }
 
   @override
+  Future<bool> ln(int lines) async {
+    // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
+    try {
+      return await methodChannel.invokeMethod('ln', <String, dynamic>{'lines': lines});
+    } on PlatformException catch (e) {
+      throw 'Unable to print ln $lines: ${e.message}';
+    }
+  }
+
+  @override
+  Future<bool> drawLine(String text) async {
+    // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
+    try {
+      return await methodChannel.invokeMethod('drawLine', <String, dynamic>{'text': text});
+    } on PlatformException catch (e) {
+      throw 'Unable to print drawLine $text: ${e.message}';
+    }
+  }
+
+  @override
+  Future<bool> image(Uri uri) async {
+    // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
+    try {
+      return await methodChannel.invokeMethod('image', <String, dynamic>{'uri': uri.toString()});
+    } on PlatformException catch (e) {
+      throw 'Unable to print image $uri: ${e.message}';
+    }
+  }
+
+  @override
+  Future<bool> imageLeft(Uri uri) async {
+    // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
+    try {
+      return await methodChannel.invokeMethod('imageLeft', <String, dynamic>{'uri': uri.toString()});
+    } on PlatformException catch (e) {
+      throw 'Unable to print imageLeft $uri: ${e.message}';
+    }
+  }
+
+  @override
+  Future<bool> imageRight(Uri uri) async {
+    // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
+    try {
+      return await methodChannel.invokeMethod('imageRight', <String, dynamic>{'uri': uri.toString()});
+    } on PlatformException catch (e) {
+      throw 'Unable to print imageRight $uri: ${e.message}';
+    }
+  }
+
+  @override
+  Future<bool> imageCenter(Uri uri) async {
+    // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
+    try {
+      return await methodChannel.invokeMethod('imageCenter', <String, dynamic>{'uri': uri.toString()});
+    } on PlatformException catch (e) {
+      throw 'Unable to print imageCenter $uri: ${e.message}';
+    }
+  }
+
+  @override
   Future<bool> flush() async {
     // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
     try {

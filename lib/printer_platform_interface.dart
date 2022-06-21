@@ -14,7 +14,7 @@ abstract class PrinterPlatform extends PlatformInterface {
   ///
   /// Defaults to [MethodChannelPrinter].
   static PrinterPlatform get instance => _instance;
-  
+
   /// Platform-specific implementations should set this with their own
   /// platform-specific class that extends [PrinterPlatform] when
   /// they register themselves.
@@ -125,6 +125,30 @@ abstract class PrinterPlatform extends PlatformInterface {
 
   Future<bool> printDoubleHeightWidthBoldCenter(String text) {
     throw UnimplementedError('printDoubleHeightWidthBoldCenter() has not been implemented.');
+  }
+
+  Future<bool> ln(int lines) {
+    throw UnimplementedError('ln() has not been implemented.');
+  }
+
+  Future<bool> drawLine(String text) {
+    throw UnimplementedError('drawLine() has not been implemented.');
+  }
+
+  Future<bool> image(Uri uri) {
+    throw UnimplementedError('image() has not been implemented.');
+  }
+
+  Future<bool> imageLeft(Uri uri) {
+    throw UnimplementedError('imageLeft() has not been implemented.');
+  }
+
+  Future<bool> imageRight(Uri uri) {
+    throw UnimplementedError('imageRight() has not been implemented.');
+  }
+
+  Future<bool> imageCenter(Uri uri) {
+    throw UnimplementedError('imageCenter() has not been implemented.');
   }
 
   Future<bool?> start() {

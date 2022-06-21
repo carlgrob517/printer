@@ -3,6 +3,7 @@ package com.floodcoding.printer;
 import static rawbt.api.Constant.*;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,9 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     }else if (call.method.equals("start")) {
       job = new RawbtPrintJob();
+      attrJob.setCopies(1);
+      attrJob.setPrinter(RawbtPrintJob.PRINTER_CURRENT);
+      attrJob.setTemplate(RawbtPrintJob.TEMPLATE_DEFAULT);
       result.success(true);
     } else if (call.method.equals("setCopies")) {
       final int copies = call.argument("copies");
@@ -216,6 +220,38 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
                 .setBold(true)
                 .setAlignment(ALIGNMENT_CENTER);
       println(text, fBw2h2);
+      result.success(true);
+    } else if (call.method.equals("ln")) {
+      final int lines = call.argument("lines");
+      if(lines > 1) {
+        job.ln(lines);
+      }else {
+        job.ln();
+      }
+      result.success(true);
+    } else if (call.method.equals("drawLine")) {
+      final String text = call.argument("text");
+      job.drawLine(text);
+      result.success(true);
+    } else if (call.method.equals("image")) {
+      final String uriString = call.argument("uri");
+      Uri uri = Uri.parse(uriString);
+      job.image(uri);
+      result.success(true);
+    } else if (call.method.equals("imageLeft")) {
+      final String uriString = call.argument("uri");
+      Uri uri = Uri.parse(uriString);
+      job.image(uri, left);
+      result.success(true);
+    } else if (call.method.equals("imageRight")) {
+      final String uriString = call.argument("uri");
+      Uri uri = Uri.parse(uriString);
+      job.image(uri, right);
+      result.success(true);
+    } else if (call.method.equals("imageCenter")) {
+      final String uriString = call.argument("uri");
+      Uri uri = Uri.parse(uriString);
+      job.image(uri, center);
       result.success(true);
     } else if (call.method.equals("flush")) {
       Toast.makeText(activity, "Print", Toast.LENGTH_SHORT).show();

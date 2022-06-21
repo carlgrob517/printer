@@ -105,6 +105,30 @@ class Printer {
     return PrinterPlatform.instance.printDoubleHeightWidthBoldCenter(text);
   }
 
+  Future<bool> ln(int lines) {
+    return PrinterPlatform.instance.ln(lines);
+  }
+
+  Future<bool> drawLine(String text) {
+    return PrinterPlatform.instance.drawLine(text);
+  }
+
+  Future<bool> image(Uri uri) {
+    return PrinterPlatform.instance.image(uri);
+  }
+
+  Future<bool> imageLeft(Uri uri) {
+    return PrinterPlatform.instance.imageLeft(uri);
+  }
+
+  Future<bool> imageRight(Uri uri) {
+    return PrinterPlatform.instance.imageRight(uri);
+  }
+
+  Future<bool> imageCenter(Uri uri) {
+    return PrinterPlatform.instance.imageCenter(uri);
+  }
+
   Future<bool?> start() {
     return PrinterPlatform.instance.start();
   }
