@@ -20,6 +20,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import rawbt.api.AppCompatRawbtPlugin;
 import rawbt.api.RawbtPrintJob;
+import rawbt.api.attributes.AttributesImage;
 import rawbt.api.attributes.AttributesString;
 
 /** PrinterPlugin */
@@ -35,6 +36,9 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
   private AttributesString left = new AttributesString().setAlignment(ALIGNMENT_LEFT);
   private AttributesString right = new AttributesString().setAlignment(ALIGNMENT_RIGHT);
   private AttributesString center = new AttributesString().setAlignment(ALIGNMENT_CENTER);
+  private AttributesImage imgLeft = new AttributesImage().setAlignment(ALIGNMENT_LEFT);
+  private AttributesImage imgRight = new AttributesImage().setAlignment(ALIGNMENT_RIGHT);
+  private AttributesImage imgCenter = new AttributesImage().setAlignment(ALIGNMENT_CENTER);
   private AttributesString bold = new AttributesString().setBold(true);
   private AttributesString underline = new AttributesString().setUnderline(true);
   private AttributesString underlineBold = new AttributesString().setUnderline(true).setBold(true);
@@ -231,7 +235,7 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
       result.success(true);
     } else if (call.method.equals("drawLine")) {
       final String text = call.argument("text");
-      job.drawLine(text);
+      job.drawLine(text.charAt(0));
       result.success(true);
     } else if (call.method.equals("image")) {
       final String uriString = call.argument("uri");
@@ -241,17 +245,17 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
     } else if (call.method.equals("imageLeft")) {
       final String uriString = call.argument("uri");
       Uri uri = Uri.parse(uriString);
-      job.image(uri, left);
+      job.image(uri, imgLeft);
       result.success(true);
     } else if (call.method.equals("imageRight")) {
       final String uriString = call.argument("uri");
       Uri uri = Uri.parse(uriString);
-      job.image(uri, right);
+      job.image(uri, imgRight);
       result.success(true);
     } else if (call.method.equals("imageCenter")) {
       final String uriString = call.argument("uri");
       Uri uri = Uri.parse(uriString);
-      job.image(uri, center);
+      job.image(uri, imgCenter);
       result.success(true);
     } else if (call.method.equals("flush")) {
       Toast.makeText(activity, "Print", Toast.LENGTH_SHORT).show();
