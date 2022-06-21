@@ -127,6 +127,10 @@ abstract class PrinterPlatform extends PlatformInterface {
     throw UnimplementedError('printDoubleHeightWidthBoldCenter() has not been implemented.');
   }
 
+  Future<bool?> start() {
+    throw UnimplementedError('start() has not been implemented.');
+  }
+
   Future<bool> flush() {
     throw UnimplementedError('flush() has not been implemented.');
   }

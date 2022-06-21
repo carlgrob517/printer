@@ -105,6 +105,10 @@ class Printer {
     return PrinterPlatform.instance.printDoubleHeightWidthBoldCenter(text);
   }
 
+  Future<bool?> start() {
+    return PrinterPlatform.instance.start();
+  }
+
   Future<bool> flush() {
     return PrinterPlatform.instance.flush();
   }

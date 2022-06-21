@@ -35,7 +35,9 @@ class _MyAppState extends State<MyApp> {
       Future.delayed(
         const Duration(seconds: 2),
         () async {
-          await _printerPlugin.println('hurayyyyyyyyyyy!');
+          await _printerPlugin.start();
+          await _printerPlugin.printCenterUnderlineBold('hurayyyyyyyyyyy!');
+          await _printerPlugin.flush();
         },
       );
     } on PlatformException {

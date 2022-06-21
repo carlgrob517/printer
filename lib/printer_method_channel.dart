@@ -16,6 +16,12 @@ class MethodChannelPrinter extends PrinterPlatform {
   }
 
   @override
+  Future<bool?> start() async {
+    final result = await methodChannel.invokeMethod<bool>('start');
+    return result;
+  }
+
+  @override
   Future<bool> println(String text) async {
     // Errors occurring on the platform side cause invokeMethod to throw PlatformExceptions.
     try {
