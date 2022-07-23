@@ -5,4 +5,7 @@
     <string name="rawbt_permission_not_granted">Permission not granted</string>
     <string name="rawb_not_installed">RawBT Print Service Not Installed</string>
     <string name="rawbt_please_wait">Wait a few seconds and try again.</string>
+    <string name="dialog_title">RawBT printer driver is missed</string>
+    <string name="dialog_message">To implement the functions of printing on a thermal printer, a driver is required. Press the button to open Google Play app and install driver.</string>
+    <string name="btn_install">Open</string>
 </resources>

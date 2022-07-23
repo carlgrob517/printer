@@ -36,7 +36,7 @@ public class RawbtApiHelper {
 
     public static Intent createExplicitIntent(){
         Intent intent = new Intent();
-        intent.setPackage("ru.a402d.rawbtprinter");
+        intent.setPackage(RawbtApiHelper.SERVICE_PACKAGE);
         intent.setAction("rawbt.action.SERVICE");
         return intent;
     }
@@ -47,6 +47,7 @@ public class RawbtApiHelper {
             packageManager.getPackageInfo(RawbtApiHelper.SERVICE_PACKAGE, 0);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
             return false;
         }
     }

@@ -1,14 +1,25 @@
 package rawbt.api;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.ServiceConnection;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.ServiceConnection;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+
+import android.view.Gravity;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.ComponentActivity;
 import androidx.activity.result.ActivityResultLauncher;
@@ -109,8 +120,9 @@ abstract public class AppCompatRawbtPlugin extends ComponentActivity {
 
     public void init(Activity _activity) {
         activity = _activity;
+        checkInstall();
         if(serviceRawBT==null) {
-            bindRawBT(activity,true);
+            bindRawBT(activity, true);
         }
     }
 
@@ -124,9 +136,10 @@ abstract public class AppCompatRawbtPlugin extends ComponentActivity {
         if(serviceRawBT == null){
             if(!RawbtApiHelper.isServiceInstalled(activity)){
                 handlePrintError(job.idJob, activity.getString(R.string.rawb_not_installed));
+                checkInstall();
                 return;
             }
-            bindRawBT(activity,false);
+            bindRawBT(activity, false);
             handlePrintError(job.idJob, activity.getString(R.string.rawbt_please_wait));
             return;
         }
@@ -138,6 +151,39 @@ abstract public class AppCompatRawbtPlugin extends ComponentActivity {
         }catch (Exception e){
             handlePrintError(job.idJob,e.getLocalizedMessage());
         }
+    }
+
+    /**
+     * Checks and if the application is not installed, then offers to download it from the Play Market
+     */
+    protected void checkInstall() {
+        //final String appPackageName = "ru.a402d.rawbtprinter";
+        
+        if (!RawbtApiHelper.isServiceInstalled(activity)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+            TextView title = new TextView(activity);
+            title.setText(R.string.dialog_title);
+            title.setBackgroundColor(Color.DKGRAY);
+            title.setPadding(10, 10, 10, 10);
+            title.setGravity(Gravity.CENTER);
+            title.setTextColor(Color.WHITE);
+            title.setTextSize(14);
+            ImageView image = new ImageView(activity);
+            image.setImageResource(R.drawable.baseline_print_black_48);
+            builder.setMessage(R.string.dialog_message)
+                    .setView(image).setCustomTitle(title);
+            builder.setPositiveButton(R.string.btn_install, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    try {
+                        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + RawbtApiHelper.SERVICE_PACKAGE)));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + RawbtApiHelper.SERVICE_PACKAGE)));
+                    }
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        } 
     }
 
     abstract protected void handleServiceConnected();
