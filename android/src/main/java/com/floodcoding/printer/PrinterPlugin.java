@@ -336,14 +336,14 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
   // ------------------------------
 
   private ArrayList<String> getPrinterList() {
-    ArrayList<String> arrayList = new ArrayList<String>();
+    ArrayList<String> arrayList = new ArrayList<>();
     arrayList.add(RawbtPrintJob.PRINTER_CURRENT);
     arrayList.add(RawbtPrintJob.PRINTER_VIRTUAL);
     return arrayList;
   }
 
   private ArrayList<String> getTemplateList() {
-    ArrayList<String> arrayList = new ArrayList<String>();
+    ArrayList<String> arrayList = new ArrayList<>();
 
     arrayList.add(RawbtPrintJob.TEMPLATE_DEFAULT);
     arrayList.add(RawbtPrintJob.TEMPLATE_NONE);
@@ -352,7 +352,7 @@ public class PrinterPlugin extends AppCompatRawbtPlugin implements FlutterPlugin
   }
 
   private static ArrayList<String> getNumbersCopies(){
-    ArrayList<String> arrayList = new ArrayList<String>();
+    ArrayList<String> arrayList = new ArrayList<>();
 
     arrayList.add("1");
     arrayList.add("2");
